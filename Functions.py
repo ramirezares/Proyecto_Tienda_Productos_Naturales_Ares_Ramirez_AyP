@@ -6,3 +6,6 @@ def print_options(options:list):
 
 def is_float(num):
         pass
+
+def only_one_point(float):
+        pass
