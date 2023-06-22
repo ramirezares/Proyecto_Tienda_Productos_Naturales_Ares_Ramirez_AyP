@@ -6,6 +6,14 @@ from Customer import Customer
 from Sale import Sale
 
 class LegalSale(Sale):
+    """_Ventas de la clase Legal "LegalSale" que son registradas en la Tienda
+
+    Methods:
+        show_atr: str
+        
+    Returns:
+        _type_: _description_
+    """    
     # TODO: Hacer docstring:
     def __init__(self,date:str,saleNumber:str,customer:Customer,productsAmount:list,paymentMethod:str,shippingMethod:str,totalAmount,discount:int,deadline:str):
         super().__init__(date,saleNumber,customer,productsAmount,paymentMethod,shippingMethod,totalAmount)
@@ -17,7 +25,7 @@ class LegalSale(Sale):
        return f'''
         Fecha: {self.date}
         Numero de venta: {self.saleNumber}
-        Cliente: {self.costumer.name}
+        Cliente: {self.customer.name}
         Cantidad de productos: {self.productsAmount}
         Metodo de pago: {self.paymentMethod}
         Metodo de envio: {self.shippingMethod}

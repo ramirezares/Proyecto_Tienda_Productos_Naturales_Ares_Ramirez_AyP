@@ -1,5 +1,5 @@
-from Functions import is_float
-from Functions import is_int
+from Validations import is_float
+from Validations import is_int
 
 class Product:
     """_Productos que son vendidos e interactuan en la Tienda_

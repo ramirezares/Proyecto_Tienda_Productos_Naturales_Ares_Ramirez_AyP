@@ -1,7 +1,7 @@
 import requests
 from Functions import print_options
-from Functions import is_int
-from Functions import is_float
+from Validations import is_int
+from Validations import is_float
 
 from Product import Product
 from Legal import Legal

@@ -1,5 +1,5 @@
-from Functions import is_int
-from Functions import is_email
+from Validations import is_email
+from Validations import is_phoneNumber
 
 # Clase Cliente. Atributos: name, email, address, phoneNumber "todos str"
 #                  Metodos: show_atr() , modify_atr(atr)
@@ -70,21 +70,16 @@ class Customer:
 
         if atr_number=='3':         #address
             new_address=input('''
-            Introduzca la nueva direccion(Ciudad,Urbanizacion,Casa.Estado):
-            ''')
-            while not len(new_address)>=35 and not len(new_address)<=150:
+            Introduzca la nueva direccion(Ciudad,Urbanizacion,Casa.Estado):''')
+            while not ',' in new_address and not '.' in new_address and not len(new_address)>=35 and not len(new_address)<=150:
                 new_address=input('''
-            Introduzca la nueva direccion(Ciudad,Urbanizacion,Casa.Estado):
-            ''')
+            Introduzca la nueva direccion(Ciudad,Urbanizacion,Casa.Estado):''')
             self.address=new_address
             print('Cambios guardados.')
         
         if atr_number=='4':         #phoneNumber
-            new_phoneNumber=input('Introduzca el nuevo numero de telefono:')
-            prefix=False
-            if new_phoneNumber[0]=="0" and new_phoneNumber[1]=="2" or new_phoneNumber[1]=="4" and new_phoneNumber[2]=="1" or new_phoneNumber[2]=="2" and new_phoneNumber[3]=="2" or new_phoneNumber[3]=="4" or new_phoneNumber[3]=="6":
-                prefix= True
-            while not new_phoneNumber.isnumeric() and not len(new_phoneNumber)==11 and not prefix: 
+            new_phoneNumber=input('Introduzca el nuevo numero de telefono con un solo punto: (Ej: 0412.2972606)')
+            while not is_phoneNumber(new_phoneNumber): 
                 new_phoneNumber=input('Invalido. Introduzca el nuevo numero de telefono:')
             self.category=new_phoneNumber
             print('Cambios guardados.')
