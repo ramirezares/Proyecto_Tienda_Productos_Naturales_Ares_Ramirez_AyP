@@ -7,7 +7,7 @@ def main():
     # TODO: Hacer docstring
 
     NaturalShop=NaturalProductsOnlineShop()
-    #NaturalShop.upload_data()
+    NaturalShop.upload_data()
     NaturalShop.menu()
 
 main()
