@@ -1,6 +1,7 @@
 from Validations import is_email
 from Validations import is_phoneNumber
 from Validations import is_rif
+from Validations import is_address
 
 from Customer import Customer
 
@@ -78,7 +79,7 @@ class Legal(Customer):
         if atr_number=='3':         #address
             new_address=input('''
             Introduzca la nueva direccion(Ciudad,Urbanizacion,Casa.Estado):''')
-            while not ',' in new_address and not '.' in new_address and not len(new_address)>=35 and not len(new_address)<=150:
+            while is_address(new_address):
                 new_address=input('''
             Introduzca la nueva direccion(Ciudad,Urbanizacion,Casa.Estado):''')
             self.address=new_address

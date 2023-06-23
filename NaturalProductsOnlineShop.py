@@ -63,8 +63,6 @@ class NaturalProductsOnlineShop:
         Precargado de datos completado.
         ''')
         
-
-
     def product_management(self):   #Gestion de productos
         # TODO: Hacer docstring
         while True:
@@ -88,7 +86,7 @@ Ingrese 0 Para salir
             if chose=='2': # Buscar Producto
                 print(f'Hola {2}')
             if chose=='3': # Modificar inf producto
-                while True:
+                while True:                                     #Mandar al archivo de functions
                     print('''-----Modificacion de atributos-----
                     Seleccione el producto a modificar:
                     ''')

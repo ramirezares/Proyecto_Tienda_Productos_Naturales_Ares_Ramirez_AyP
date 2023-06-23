@@ -27,7 +27,7 @@ class Natural(Customer):
         
         La superclase 'Customer' extiende su constructor y la subclase Natural adiciona al metodo constructor para conformar el suyo.       
         """
-          
+                
         super().__init__(name,email,address,phoneNumber)
         self.lastName=lastName
         self.identifierDocument=identifierDocument
@@ -70,15 +70,22 @@ class Natural(Customer):
                 new_name=input('Invalido. Introduzca el nuevo nombre:')
             self.name=new_name
             print('Cambios guardados.')
+        
+        if atr_number=='2': #lastName
+            new_lastName=input('Introduzca el nuevo apellido:')
+            while not new_lastName.isalpha() and not len(new_lastName)>=2 and not len(new_lastName)<=45 and not " " in new_lastName:
+                new_lastName=input('Invalido. Introduzca el nuevo apellido:')
+            self.lastName=new_lastName
+            print('Cambios guardados.')
 
-        if atr_number=='2':         #email
+        if atr_number=='3':         #email
             new_email=input('Introduzca el nuevo correo:') 
             while not is_email(new_email):
                 new_email=input('Invalido. Introduzca el nuevo correo:')
             self.email=new_email
             print('Cambios guardados.')
 
-        if atr_number=='3':         #address
+        if atr_number=='4':         #address
             new_address=input('''
             Introduzca la nueva direccion(Ciudad,Urbanizacion,Casa.Estado):''')
             while not ',' in new_address and not '.' in new_address and not len(new_address)>=35 and not len(new_address)<=150:
@@ -87,18 +94,11 @@ class Natural(Customer):
             self.address=new_address
             print('Cambios guardados.')
         
-        if atr_number=='4':         #phoneNumber
+        if atr_number=='5':         #phoneNumber
             new_phoneNumber=input('Introduzca el nuevo numero de telefono con un solo punto: (Ej: 0412.2972606)')
             while not is_phoneNumber(new_phoneNumber): 
                 new_phoneNumber=input('Invalido. Introduzca el nuevo numero de telefono:')
             self.category=new_phoneNumber
-            print('Cambios guardados.')
-
-        if atr_number=='5': #lastName
-            new_lastName=input('Introduzca el nuevo apellido:')
-            while not new_lastName.isalpha() and not len(new_lastName)>=2 and not len(new_lastName)<=45 and not " " in new_lastName:
-                new_lastName=input('Invalido. Introduzca el nuevo apellido:')
-            self.lastName=new_lastName
             print('Cambios guardados.')
 
         if atr_number=='6': #identifierDocument

@@ -52,7 +52,10 @@ def is_email(email):
                                        return True
                                 else:
                                        return False
-                
+
+def is_address(address:str): 
+      # not address.isalnum() and not ',' in new_address and not '.' in new_address and not len(new_address)>=35 and not len(new_address)<=100:
+      pass                
 
 def is_phoneNumber(phoneNumber:str): 
     if "." in phoneNumber and phoneNumber.count('.')==1 and len(phoneNumber)==12:

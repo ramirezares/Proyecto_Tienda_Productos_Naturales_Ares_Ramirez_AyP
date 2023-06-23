@@ -1,17 +1,11 @@
+#TODO - Hacer Docstrings
 class Date:
-    
-    enero=[range(1,31)] #ver cuantos dias tiene cada mes
-    febrero=[range(1,31)]   #ver cuantos dias tiene cada mes
-    marzo=[range(1,31)] #ver cuantos dias tiene cada mes
-    abril=[range(1,31)] #ver cuantos dias tiene cada mes
-    mayo=[range(1,31)]  #ver cuantos dias tiene cada mes
-    junio=[range(1,31)] #ver cuantos dias tiene cada mes
-    julio=[range(1,31)] #ver cuantos dias tiene cada mes
-    agosto=[range(1,31)]    #ver cuantos dias tiene cada mes
-    septiembre=[range(1,31)]    #ver cuantos dias tiene cada mes
-    octubre=[range(1,31)]   #ver cuantos dias tiene cada mes
-    noviembre=[range(1,31)] #ver cuantos dias tiene cada mes
-    diciembre=[range(1,31)] #ver cuantos dias tiene cada mes
+    def __init__(self,day:int,month:int,year:int):
+        self.day=day
+        self.month=month
+        self.year=year
 
-    years=range(2000,2050)
+    def show_date(self):
+        return f"{self.day}/{self.month}/{self.year}"
+    
     

@@ -1,5 +1,5 @@
 from Customer import Customer
-
+from Date import Date
 class Sale:
     """_Ventas que seran registradas en la Tienda_
 
@@ -10,11 +10,11 @@ class Sale:
         LegalSale
     """
 
-    def __init__(self,date:str,saleNumber:str,customer:Customer,productsAmount:list,paymentMethod:str,shippingMethod:str,totalAmount):
+    def __init__(self,date:Date,saleNumber:str,customer:Customer,productsAmount:list,paymentMethod:str,shippingMethod:str,totalAmount):
         """_Crea una instancia de la clase Venta 'Sale'_
 
         Args:
-            date (str): --Fecha de la venta
+            date (date): --Fecha de la venta
             saleNumber (str): --Numero de la venta
             customer (Customer): --Cliente de la venta
             productsAmount (list): --Productos y cantidad de los mismos que se venden
@@ -41,7 +41,7 @@ class Sale:
         """
 
         return f'''
-        Fecha: {self.date}
+        Fecha: {self.date.show_date()}
         Numero de venta: {self.saleNumber}
         Cliente: {self.customer}
         Cantidad de productos: {self.productsAmount}
