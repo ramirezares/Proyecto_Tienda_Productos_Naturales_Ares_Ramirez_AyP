@@ -1,7 +1,8 @@
-from Customer import Customer
+from Sale import Sale
+from LegalSale import LegalSale 
 
 class Order:
-    def __init__(self,customer:Customer,productsAmount:list,) -> None:
+    def __init__(self,sale:Sale,):
         pass
 
     #Inf vendedor y comprador

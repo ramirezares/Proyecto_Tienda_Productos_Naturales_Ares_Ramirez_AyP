@@ -9,5 +9,5 @@ def main():
     NaturalShop=NaturalProductsOnlineShop()
     NaturalShop.upload_data()
     NaturalShop.menu()
-
+    NaturalShop.set_date()
 main()

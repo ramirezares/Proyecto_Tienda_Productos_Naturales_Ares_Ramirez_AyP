@@ -1,5 +1,9 @@
-from Validations import is_float
 from Validations import is_int
+from Validations import is_productName
+from Validations import is_description
+from Validations import is_price
+from Validations import is_category
+from Validations import is_availability
 
 class Product:
     """_Productos que son vendidos e interactuan en la Tienda_
@@ -51,38 +55,38 @@ class Product:
         """
 
         if atr_number=='1':         #name
-            new_name=input('Introduzca el nuevo nombre:')
-            while not new_name.isalpha() and not len(new_name)>=3 and not len(new_name)<=30:
-                new_name=input('Invalido. Introduzca el nuevo nombre sin numeros:')
+            new_name=input('Introduzca el nuevo nombre del producto:')
+            while not is_productName(new_name):
+                new_name=input('Invalido. Introduzca el nuevo nombre del producto:')
             self.name=new_name
-            print('Cambios guardados.')
+            print('Guardado.')
 
         if atr_number=='2':         #description
-            new_description=input('Introduzca la nueva descripcion:') 
-            while not len(new_description)>=15 and not len(new_description)<=200:
-                new_description=input('Invalido. Introduzca la nueva descripcion:')
+            new_description=input('Introduzca la nueva descripcion del producto:') 
+            while not is_description(new_description):
+                new_description=input('Invalido. Introduzca la nueva descripcion del producto:')
             self.description=new_description
-            print('Cambios guardados.')
+            print('Guardado.')
 
         if atr_number=='3':         #price
-            new_price=input('Introduzca el nuevo precio:')
-            while not is_float(new_price) and not len(new_price)>=1 and not len(new_price)<=5: 
-                new_price=input('Invalido. Introduzca el nuevo precio:')
+            new_price=input('Introduzca el nuevo precio del producto:')
+            while not is_price(new_price):
+                new_price=input('Invalido. Introduzca el nuevo precio del producto:')
             self.price=new_price
-            print('Cambios guardados.')
+            print('Guardado.')
         
         if atr_number=='4':         #category
-            new_category=input('Introduzca la nueva categoria:')
-            while not new_category.isalpha() and not len(new_category)>=3 and not len(new_category)<=20: 
-                new_category=input('Invalido. Introduzca la nueva categoria:')
+            new_category=input('Introduzca la nueva categoria del producto:')
+            while not is_category(new_category):
+                new_category=input('Invalido. Introduzca la nueva categoria del producto:')
             self.category=new_category
-            print('Cambios guardados.')
+            print('Guardado.')
         
         if atr_number=='5':         #availavility
-            new_stock=input('Introduzca la nueva disponibilidad:')
-            while not is_int(new_stock) and not len(new_stock)>=1 and not len(new_stock)<=5: 
-                new_stock=input('Invalido. Introduzca la nueva disponibilidad:')
+            new_stock=input('Introduzca la nueva disponibilidad del producto:')
+            while not is_availability(new_stock):
+                new_stock=input('Invalido. Introduzca la nueva disponibilidad del producto:')
             self.availability=new_stock
-            print('Cambios guardados.')
+            print('Guardado.')
          
         

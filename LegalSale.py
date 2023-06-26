@@ -18,32 +18,41 @@ class LegalSale(Sale):
     """
 
     def __init__(self,date:Date,saleNumber:str,customer:Customer,productsAmount:list,paymentMethod:str,shippingMethod:str,totalAmount,amount_of_days:int):
-        """_summary_    #TODO - "Hacer docstring"
+        """_Crea una instancia de la clase 'LegalSale'_    
 
         Args:
-            date (Date): _description_
-            saleNumber (str): _description_
-            customer (Customer): _description_
-            productsAmount (list): _description_
-            paymentMethod (str): _description_
-            shippingMethod (str): _description_
-            totalAmount (_type_): _description_
-            amount_of_days (int): _description_
+            date (Date): --Fecha de la venta
+            saleNumber (str): --Numero de la venta
+            customer (Customer): --Cliente de la venta
+            productsAmount (list): --Productos y cantidad de los mismos que se venden
+            paymentMethod (str): --Metodo de pago de la venta
+            shippingMethod (str): --Metodo de envio de la venta
+            totalAmount (_type_): --Monto total de la venta
+            amount_of_days (int): --Cantidad de dias para pago de contado. 
         """        
         super().__init__(date,saleNumber,customer,productsAmount,paymentMethod,shippingMethod,totalAmount)
         self.discount=5
         self.deadline=calculate_deadline(date,amount_of_days)
     
     def show_atr(self):
-       # TODO: Hacer docstring:
+       """_Muestra los atributos de una instancia de la clase Sale_
+
+        Args:
+        self -- la instancia, preteneciente a la clase Sale, de la cual se desea visualizar los atributos.
+
+        Returns:
+            str: --retorna los atributos ordenados de dicha instancia.
+        """
+
        return f'''
-        Fecha: {self.date}
-        Numero de venta: {self.saleNumber}
-        Cliente: {self.customer.name}
-        Cantidad de productos: {self.productsAmount}
-        Metodo de pago: {self.paymentMethod}
-        Metodo de envio: {self.shippingMethod}
-        Monto total: {self.saleNumber}
-        Descuento: {self.discount}
-        Fecha limite: {self.deadline}
-        '''    
+       Fecha: {self.date.show_date()}   Numero de venta: {self.saleNumber}
+       Cliente: {self.customer.name}
+
+       Cantidad de productos: {self.productsAmount} 
+       
+       Metodo de pago: {self.paymentMethod}
+       Metodo de envio: {self.shippingMethod}
+       Monto total: {self.saleNumber}
+       Descuento: {self.discount}
+       Fecha limite: {self.deadline.show_date()}
+       '''    

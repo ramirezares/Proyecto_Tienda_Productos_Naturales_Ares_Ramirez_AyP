@@ -17,13 +17,14 @@ class Sale:
             date (date): --Fecha de la venta
             saleNumber (str): --Numero de la venta
             customer (Customer): --Cliente de la venta
-            productsAmount (list): --Productos y cantidad de los mismos que se venden
+            productsAmount (list): --Productos y cantidad de los mismos que se venden #TODO: Arreglar con la nueva idea
             paymentMethod (str): --Metodo de pago de la venta
-            shippingMethod (str): --Metodo de envio de la venta
+            shippingMethod (str): --Metodo de envio de la venta     #Plantear agregar direccion de envio a la factura porque todo sera Online
             totalAmount (_type_): --Monto total de la venta
-        """        
+        """
+
         self.date=date
-        self.saleNumber= saleNumber         #cambiar el orden en el diagrama
+        self.saleNumber= saleNumber         #TODO: 'cambiar el orden en el diagrama'
         self.customer=customer
         self.productsAmount=productsAmount
         self.paymentMethod=paymentMethod
@@ -41,10 +42,11 @@ class Sale:
         """
 
         return f'''
-        Fecha: {self.date.show_date()}
-        Numero de venta: {self.saleNumber}
+        Fecha: {self.date.show_date()}  Numero de venta: {self.saleNumber}
         Cliente: {self.customer}
+        
         Cantidad de productos: {self.productsAmount}
+        
         Metodo de pago: {self.paymentMethod}
         Metodo de envio: {self.shippingMethod}
         Monto total: {self.saleNumber}

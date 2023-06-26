@@ -1,44 +1,41 @@
 import requests
-from Functions import print_options
-from Validations import is_int
-from Validations import is_float
+from Functions import *
+from Functions import product_management_module
+from Functions import customer_management_module
+
 
 from Product import Product
-from Legal import Legal
-from Natural import Natural
-from Sale import Sale
-from LegalSale import LegalSale
-from Pay import Pay
-from Shipping import Shipping
-from Pay import Pay
+
 #TODO: Hacer modulo Stat "from Stat import Stat"
 
 
-class NaturalProductsOnlineShop:                        
+class NaturalProductsOnlineShop:
     """_summary_
     Clase "Tienda": NaturalProductsOnlineShop.
     
-    Atributos: 
-    Products[]
-    Costumers[]
-    Sales[]
-    Payments[]
-    Shipped[]
-    Stats[]
+    Args: 
+    Products=[]
+    Costumers=[]
+    Sales=[]
+    Bills=[]
+    Payments=[]
+    Shipped=[]
+    Stats=[]
     
     Metodos: 
-    Ver en el diagrama       #show_atr? Preguntar si lo elimino
-
+    Ver en el diagrama       #export_atr? Preguntar si lo elimino(show_atr) #TODO: Copiar los metodos
     """
-    #TODO: Copiar los metodos
-
+    
     def __init__(self):
-        # TODO: Hacer docstring:
+        """_Crea una instancia de la clase NaturalProductsOnlineShop_
+        """
         self.Products= []
-        self.Costumers= []
+        self.Customers= []
         self.Sales= []
+        self.payments=[]
         self.Shipped= []
         self.Stats= []
+        self.date=None
 
     def upload_data(self):
         """_summary_
@@ -62,61 +59,44 @@ class NaturalProductsOnlineShop:
         print('''
         Precargado de datos completado.
         ''')
+
+        # Poner opcion de cargar los cambios que se habian realizado
+    
+    def set_date(self):
+        set_date()
         
-    def product_management(self):   #Gestion de productos
+        #self.date
+
+    def product_management(self):   #Gestion de productos # TODO: Hacer docstring
+        product_management_module(self)
+
+    def sales_management(self):      #Gestion de ventas Registrar venta. Generar Factura Buscar venta (filtros) 
         # TODO: Hacer docstring
         while True:
-            print('''
------Bienvenido al modulo de Gestion de Productos-----
-''')
-            options=['Agregar producto.','Buscar producto.','Modificar informacion de un producto.','Eliminar producto.','Salir.']
+            print('''\n -----Bienvenido al modulo de Gestion de Ventas----- \n''')
+            options=['Registrar venta.','Generar Factura','Buscar Venta.','Salir.']
             print_options(options)
-            chose=input('''
-
-Ingrese la opcion deseada:''')
+            chose=input('''\n Ingrese la opcion deseada:''')
             while not chose.isnumeric() or int(chose) not in range(1,len(options)+1):
-                chose=input('''
-Opcion invalida. Ingrese la opcion deseada:
-Ingrese 0 Para salir
-                ''')
+                chose=input('''\n Opcion invalida. Ingrese la opcion deseada:\n Ingrese 0 Para salir \n''')
                 if chose=='0':
                     break
-            if chose=='1': # Agregar producto
+            
+            if chose=='1': #Registrar Venta
                 print(f'Hola {1}')
-            if chose=='2': # Buscar Producto
+            
+            if chose=='2': #Generar Factura
                 print(f'Hola {2}')
-            if chose=='3': # Modificar inf producto
-                while True:                                     #Mandar al archivo de functions
-                    print('''-----Modificacion de atributos-----
-                    Seleccione el producto a modificar:
-                    ''')
-                    for idx in range(len(self.Products)):
-                        print(f'{idx+1} {self.Products[idx].show_atr()}')
-                    chose=input('Introduzca el numero del producto a modificar')
-                    #validar int and in range
-                    idx_product_to_modify=int(chose)-1
-                    product_to_modify=self.Products[idx_product_to_modify]
-                    print('''
-                    Seleccione el atributo a modificar:
-                    ''')
-                    options=['Nombre.','Descripcion','Precio','Categoria','Disponibilidad','Salir']
-                    #validar int and in range
-                    print_options(options)
-                    chose=input('Introduzca el numero del atributo que desea a modificar')
-                    product_to_modify.modify_atr(chose)
+            
+            if chose=='3': #Buscar venta 
+                print(f'Hola {3}')
 
-            if chose=='4': # Eliminar producto
-                print(f'Hola {4}')
-            if chose=='5': # Salir
+            if chose=='4': #Salir 
                 break
-    
-    def customer_management(self):      #Gestion de clientes
-        # TODO: Hacer docstring
-        pass
 
-    def sales_management(self):      #Gestion de ventas
+    def customer_management(self):      #Gestion de clientes Mismo que productos
         # TODO: Hacer docstring
-        pass
+        customer_management_module(self)
 
     def payment_management(self):      #Gestion de pagos
         # TODO: Hacer docstring
@@ -140,19 +120,17 @@ Ingrese 0 Para salir
 ¿Que desea hacer?
 ''')
             options=['Restablecer','Gestion de productos','Gestion de ventas','Gestion de clientes','Gestion de pagos','Gestion de envios','Estadisticas','Salir',]
-            for i in range(len(options)):
-                print(f'    {i+1}. {options[i]}')
-            chose=input('''
-Ingrese el numero de la opcion deseada:''')
-            while not chose.isnumeric() and int(chose)+1 not in range(1,len(options)):
-                chose=input('''
-                Opcion invalida. Ingrese el numero de la opcion deseada:''')
+            print_options(options)
+            chose=input(f'''\n Ingrese el numero de la opcion deseada:''')
+            while not chose.isnumeric() or int(chose) not in range(1,len(options)+1):
+                chose=input(f'''\n Opcion invalida. Ingrese el numero de la opcion deseada:''')
             if chose=='1': # Cargar con API metodo upload_data
                 self.upload_data()
             if chose=='2': # Gestion de productos
                 self.product_management()
             if chose=='3': # Gestion de ventas
-                pass
+                self.sales_management()
+
             if chose=='4': # Gestion de clientes
                 self.customer_management()
             
@@ -166,5 +144,5 @@ Ingrese el numero de la opcion deseada:''')
                 pass
             
             if chose=='8': # Salir
-                pass
+                break
 
