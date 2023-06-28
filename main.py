@@ -5,9 +5,8 @@ def main():
     
     """
     # TODO: Hacer docstring
-
+    print(f"\n-----Inicializacion del sistema-----\n")
     NaturalShop=NaturalProductsOnlineShop()
-    NaturalShop.upload_data()
-    NaturalShop.menu()
-    NaturalShop.set_date()
+    NaturalShop.start()
+    
 main()

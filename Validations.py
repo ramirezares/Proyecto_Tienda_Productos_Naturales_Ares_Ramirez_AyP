@@ -3,7 +3,6 @@
 from Date import Date
 
 def is_int(num):
-        # TODO: "Hacer docsting"
         try:
                 int(num)
                 return True
@@ -11,7 +10,6 @@ def is_int(num):
               return False
 
 def is_float(num):
-        # TODO: "Hacer docsting"
         try: 
                 float(num)
                 return True
@@ -26,11 +24,12 @@ def is_naturalName(name:str):          #Natural name
             return True
       return False
 
-def is_productName(name:str):          # product's name
-        provisional_name=name
-        copy=provisional_name.replace(" ","a")
-        if copy.isalpha() and len(name)>=3 and len(name)<=50:
-            return True
+def is_productName(name:str):          # Product's name
+        if " " in name:
+              provisional_name=name
+              copy=provisional_name.replace(" ","a")
+              if copy.isalpha() and len(name)>=3 and len(name)<=50:
+                    return True
         return False
 
 def is_description(description:str):
@@ -68,8 +67,7 @@ def is_socialReason(socialReason:str): #Legal name
       return False
 
 
-def is_email(email:str):
-        # TODO: "Hacer docsting"               
+def is_email(email:str):               
         if "@" in email and email.count('@')==1:                            
                 div=email.split('@')
                 
@@ -84,7 +82,7 @@ def is_email(email:str):
                       count_low += 1
                     if i.isnumeric():
                       count_num += 1
-                if len(before_arroba)>4 and count_up != 0 and count_low != 0 and count_num != 0: #Al menos una mayuscula, una minuscula, un numero y len>4
+                if len(before_arroba)>6 and count_up != 0 and count_low != 0 and count_num != 0: #Al menos una mayuscula, una minuscula, un numero y len>4
                         val_before_arroba=True
                 else:
                        val_before_arroba=False
@@ -131,7 +129,7 @@ def is_cedula(cedula:str):
               return False
         
 
-def is_rif(rif:str): # TODO: "Hacer docsting" #len(rif)==12 #J‑29989842‑2
+def is_rif(rif:str):  #len(rif)==12 Ej: J‑29989842‑2
         if "-" in rif and rif.count("-")==2 and len(rif)==12:
             div=rif.split("-",2)
             if "J" in div[0] and div[1].isnumeric() and len(div[1])==8 and div[2].isnumeric() and len(div[2])==1:
@@ -140,7 +138,6 @@ def is_rif(rif:str): # TODO: "Hacer docsting" #len(rif)==12 #J‑29989842‑2
               return False
 
 def is_date(date:Date): 
-        # TODO: "Hacer docsting"
         calendary={"1":31,
                    "2":28,
                    "3":31,
@@ -159,6 +156,4 @@ def is_date(date:Date):
                           return True
         return False
 
-def in_range(list): # TODO: "Hacer docsting"
-        pass
 
