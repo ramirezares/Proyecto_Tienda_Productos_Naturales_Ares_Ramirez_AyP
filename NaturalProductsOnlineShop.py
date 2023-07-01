@@ -16,7 +16,6 @@ class NaturalProductsOnlineShop:
     Products=[]
     Costumers=[]
     Sales=[]
-    Bills=[]
     Payments=[]
     Shipped=[]
     
@@ -59,12 +58,12 @@ class NaturalProductsOnlineShop:
     register_delivery()
     search_shipping(self)
     selection_period_to_search_and_generate_inf(self):
-    report_sales_number_in_year(self,years_to_print,months_to_print,date_init:Date,date_final:Date):
-    report_sales_number_in_month(self,yearNumber,monthNumber,date_init:Date,date_final:Date):
-    report_pay_number_in_year(self,years_to_print,months_to_print,date_init:Date,date_final:Date):
-    report_pay_number_in_month(self,yearNumber,monthNumber,date_init:Date,date_final:Date):
-    report_shipping_number_in_year(self,years_to_print,months_to_print,date_init:Date,date_final:Date):
-    report_shipping_number_in_month(self,yearNumber,monthNumber,date_init:Date,date_final:Date):
+    report_sales_number_in_year(self,years_to_print,months_to_print,date_init:Date,date_final:Date)
+    report_sales_number_in_month(self,yearNumber,monthNumber,date_init:Date,date_final:Date)
+    report_pay_number_in_year(self,years_to_print,months_to_print,date_init:Date,date_final:Date)
+    report_pay_number_in_month(self,yearNumber,monthNumber,date_init:Date,date_final:Date)
+    report_shipping_number_in_year(self,years_to_print,months_to_print,date_init:Date,date_final:Date)
+    report_shipping_number_in_month(self,yearNumber,monthNumber,date_init:Date,date_final:Date)
     """
     
     def __init__(self):

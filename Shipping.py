@@ -12,8 +12,8 @@ class Shipping:
         Args:
             date (Date): Fecha del envio
             customer (Customer): Cliente del envio
-            shippingNumber (_type_): Numero del envio
-            Order (_type_): Orden(Factura) del envio
+            shippingNumber (str): Numero del envio
+            Order (sale): Orden(Factura) del envio
             shippingService (str): Servicio del envio
             shippingCost (float): Costo del envio
         """        
