@@ -1,13 +1,26 @@
 from Validations import *
 from Customer import Customer
 
-class Natural(Customer):
-    #Docsting
+class Natural(Customer): 
+    """_Clientes del tipo Natural que son registrados e interactuan en la Tienda_
+
+    Methods:
+        show_atr: str
+        modify_atr: void        
+    """
+    
 
     def __init__(self, name: str, kind: str, email: str, address: str, phoneNumber: str, identifierDocument:str):
         super().__init__(name, kind, email, address, phoneNumber, identifierDocument)
+        """_La clase llama al constructor de su superclase_
+        """        
 
     def show_atr(self):
+        """_Muestra los atributos de una instancia de la clase Natural
+
+        Returns:
+            str: --retorna los atributos ordenados de dicha instancia
+        """
         return f'''
         Nombre: {self.name}
         Tipo de cliente: {self.kind}
@@ -18,6 +31,12 @@ class Natural(Customer):
         '''
     
     def modify_atr(self, atr_number):
+        """_Modifica los atributos de una instancia de la clase_
+
+        Returns:
+            void
+        """        
+        
         if atr_number=='1':         #name
             new_name=input(f'\nIntroduzca el nombre y apellido:')
             while not is_naturalName(new_name):

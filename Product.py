@@ -33,9 +33,6 @@ class Product:
     def show_atr(self):
         """_Muestra los atributos de una instancia de la clase Producto_
 
-        Args:
-        self -- la instancia, preteneciente a la clase productos, de la cual se desea visualizar los atributos.
-
         Returns:
             str: --retorna los atributos ordenados de dicha instancia
         """
@@ -43,9 +40,7 @@ class Product:
         return f'''
         Nombre: {self.name}
         Descripcion: {self.description}
-        Precio: {self.price}
-        Categoria: {self.category}
-        Disponibilidad: {self.availability}
+        Categoria: {self.category}      Disponibilidad: {self.availability}     Precio: {self.price}
         '''
 
     def modify_atr(self,atr_number):

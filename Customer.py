@@ -34,9 +34,6 @@ class Customer:
     def show_atr(self):
         """_Muestra los atributos de una instancia de la clase Cliente_
 
-        Args:
-        self -- la instancia, preteneciente a la clase cliente, de la cual se desea visualizar los atributos.
-
         Returns:
             str: --retorna los atributos ordenados de dicha instancia
         """

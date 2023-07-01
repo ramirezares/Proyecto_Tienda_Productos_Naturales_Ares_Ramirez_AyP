@@ -24,16 +24,20 @@ def is_naturalName(name:str):          #Natural name
             return True
       return False
 
-def is_productName(name:str):          # Product's name
+def is_productName(name):          # Product's name
         if " " in name:
               provisional_name=name
               copy=provisional_name.replace(" ","a")
               if copy.isalpha() and len(name)>=3 and len(name)<=50:
                     return True
+        elif type(name)==str:
+              provisional_name=name
+              if provisional_name.isalpha() and len(provisional_name)>=3 and len(provisional_name)<=50:
+                    return True
         return False
 
 def is_description(description:str):
-      if " " in description:
+      if " " in description and "," in description or "." in description:
             provisional_description=description.replace(' ','a')
             copy=provisional_description.replace(',','b')
             copy2=copy.replace('.','c')
@@ -42,7 +46,7 @@ def is_description(description:str):
       return False
       
 def is_price(price:str):
-      if is_float(price) and len(price)>=1 and len(price)<=5: 
+      if is_float(price) and len(price)>=1 and len(price)<=4: 
             return True
       return False
       
@@ -123,8 +127,8 @@ def is_cedula(cedula:str):
         div=cedula.split('.',2)
         millions=range(1,36)
         if div[0].isnumeric() and div[1].isnumeric() and div[2].isnumeric():
-               if div[0] in millions and len(div[0])==1 or len(div[0])==2 and len(div[1])==3 and len(div[2])==3:
-                return True        
+              if int(div[0]) in millions and len(div[0])==1 or len(div[0])==2 and len(div[1])==3 and len(div[2])==3:
+                     return True        
         else:
               return False
         
@@ -156,4 +160,14 @@ def is_date(date:Date):
                           return True
         return False
 
-
+def is_period_of_one_year(date_init:Date,date_final:Date):
+      if int(date_final.year)-int(date_init.year)==1:
+            if int(date_final.month)-int(date_init.month)==0:
+                  if int(date_final.day)-int(date_init.day)==0:
+                        return True
+                  else:
+                        return False
+            else:
+                  return False
+      else:
+            return False
